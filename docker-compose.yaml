@@ -1,0 +1,52 @@
+# Made by Simon Wilmots
+version: '3.5'
+
+services:
+  rocketwiki:
+    build:
+      context: '.'
+      #args:
+        #uid: ${UID}
+    container_name: rocketwiki
+    ports:
+      - 8000:80
+    environment:
+      - APACHE_RUN_USER=#1000
+      - APACHE_RUN_GROUP=#1000
+    volumes:
+      - ./rocketwiki:/var/www/html
+    depends_on:
+      - rocketwiki-db
+    networks:
+      - default
+
+  rocketwiki-db:
+    image: mysql:5.7
+    container_name: mysql-db
+    ports:
+      - "3306:3306"
+    #volumes:
+    #  - ./rocketwiki/mysql_conf/run/var:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: rocketwiki_db
+      DB_PORT: 3306
+    networks:
+      - default
+  
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    ports:
+      - 8081:80
+    links:
+      - rocketwiki-db
+    environment:
+      PMA_HOST: mysql-db
+      PMA_USER: root
+      PMA_PASSWORD: root
+      PMA_PORT: 3306
+    depends_on:
+      - rocketwiki-db
+    networks:
+      - default
