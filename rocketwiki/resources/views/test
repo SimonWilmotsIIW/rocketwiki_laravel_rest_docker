@@ -1,0 +1,32 @@
+   @foreach($data as $rocket)
+        <div>
+            <b>ID</b>
+            <p>{{ $rocket->$id }}</p>
+
+            <b>Name</b>
+            <p>{{ $rocket->$name }}</p>
+
+            <b>Description</b>
+            <p>{{ $rocket->$description }}</p>
+
+            <b>Active</b>
+            <p>{{ $rocket->$active }}</p>
+
+            <b>Cost per launch</b>
+            <p>{{ $rocket->$cost_per_launch }}</p>
+
+            <b>First flight</b>
+            <p>{{ $rocket->$first_flight }}</p>
+
+            <b>Manufacturer ID</b>
+            <p>{{ $rocket->$manufacturer_id }}</p>
+
+            <b>Image</b>
+            <img src="{{ $rocket->$image }}" />
+
+            <b>Success rate</b>
+            <p>{{ $rocket->$success_rate_pct }}</p>
+
+        </div>
+        <br /><br /><br />
+    @endforeach
