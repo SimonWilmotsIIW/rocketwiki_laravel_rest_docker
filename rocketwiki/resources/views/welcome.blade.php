@@ -41,7 +41,6 @@
                 <li><a href="/manufacturer/1">/manufacturer/{id}</a></li>
                 <li><a href="/manufacturer/name/ESA">/manufacturer/name/{name}</a></li>
             </ul>
-            <i>To see the raw (non-consumed) api data, please put '/api/' in front of the request</i>
         </main>
 
         <section>

@@ -23,7 +23,7 @@ Route::get('/', function () {
 Route::get('/rocket/{id}', function ($id) {
     $request = Request::create('/api/rocket/' . $id, 'GET');
     $response = Route::dispatch($request)->getContent();
-    return view($view='rockets', ['data'=>$response]);
+    return view($view='rocket', ['data'=>$response]);
 });
 
 Route::get('/rockets', function () {
@@ -49,11 +49,11 @@ Route::get('/rockets/success/{min}/{max}', function ($min, $max) {
 Route::get('/manufacturer/{id}', function ($id) {
     $request = Request::create('/api/manufacturer/' . $id, 'GET');
     $response = Route::dispatch($request)->getContent();
-    return view($view='rockets', ['data'=>$response]);
+    return view($view='manufacturer', ['data'=>$response]);
 });
 
 Route::get('/manufacturer/name/{name}', function ($name) {
     $request = Request::create('/api/manufacturer/name/' . $name, 'GET');
     $response = Route::dispatch($request)->getContent();
-    return view($view='rockets', ['data'=>$response]);
+    return view($view='manufacturer-name', ['data'=>$response]);
 });
