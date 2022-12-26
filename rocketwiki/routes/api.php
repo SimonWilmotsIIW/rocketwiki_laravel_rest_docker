@@ -29,6 +29,11 @@ Route::get('/rockets/manufacturer/name/{name}', [RocketController::class, "getRo
 /* GET one rocket */
 Route::get('/rocket/{id}', [RocketController::class, "getRocketById"]);
 
+/* POST make new rocket */
+Route::post('/rocket/new', [RocketController::class, "addRocket"]);
+
+Route::delete('/rocket/remove/{id}', [RocketController::class, "removeRocket"]);
+
 /* GET requests for the manufacturer */
 Route::get('/manufacturer/{id}', [RocketController::class, "getManufacturerById"])/*->where('naam', '^[A-Za-z]+$')*/;
 Route::get('/manufacturer/name/{name}', [RocketController::class, "getManufacturerByName"])/*->where('naam', '^[A-Za-z]+$')*/;
